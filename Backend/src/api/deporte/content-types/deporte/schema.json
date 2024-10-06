@@ -4,26 +4,27 @@
   "info": {
     "singularName": "deporte",
     "pluralName": "deportes",
-    "displayName": "Deporte"
+    "displayName": "Deporte",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "Image": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "noticias": {
       "type": "relation",

@@ -617,15 +617,16 @@ export interface ApiDeporteDeporte extends Struct.CollectionTypeSchema {
     singularName: 'deporte';
     pluralName: 'deportes';
     displayName: 'Deporte';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    Image: Schema.Attribute.Media<'images' | 'files'> &
+    image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     noticias: Schema.Attribute.Relation<'oneToMany', 'api::noticia.noticia'>;
     createdAt: Schema.Attribute.DateTime;
@@ -668,6 +669,32 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
+  };
+}
+
+export interface ApiHomeHome extends Struct.SingleTypeSchema {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titulo: Schema.Attribute.String;
+    descripcion: Schema.Attribute.Text;
+    cover: Schema.Attribute.Media<'images' | 'files'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
   };
 }
 
@@ -1088,6 +1115,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::deporte.deporte': ApiDeporteDeporte;
       'api::global.global': ApiGlobalGlobal;
+      'api::home.home': ApiHomeHome;
       'api::noticia.noticia': ApiNoticiaNoticia;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
