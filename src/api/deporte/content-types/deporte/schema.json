@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deportes",
+  "info": {
+    "singularName": "deporte",
+    "pluralName": "deportes",
+    "displayName": "Deporte",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "noticias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::noticia.noticia",
+      "mappedBy": "deporte"
+    }
+  }
+}
