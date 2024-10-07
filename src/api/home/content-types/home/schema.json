@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "home"
+    "displayName": "home",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,12 +19,22 @@
       "type": "text"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "logo": {
       "allowedTypes": [
         "images",
         "files"
       ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": true
     }
   }
 }

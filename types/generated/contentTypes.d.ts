@@ -678,6 +678,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'home';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -686,6 +687,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     titulo: Schema.Attribute.String;
     descripcion: Schema.Attribute.Text;
     cover: Schema.Attribute.Media<'images' | 'files'>;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -710,15 +713,16 @@ export interface ApiNoticiaNoticia extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Titulo: Schema.Attribute.String &
+    titulo: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 5;
       }>;
-    Preview: Schema.Attribute.Media<'images' | 'files'> &
+    preview: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     deporte: Schema.Attribute.Relation<'manyToOne', 'api::deporte.deporte'>;
-    contenido: Schema.Attribute.RichText & Schema.Attribute.Required;
+    contenido: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
