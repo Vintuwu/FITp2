@@ -34,7 +34,8 @@
       "inversedBy": "noticias"
     },
     "contenido": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     }
   }
 }
