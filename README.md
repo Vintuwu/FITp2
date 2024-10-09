@@ -16,7 +16,7 @@ Este es el repositorio del Backend hecho en Strapi
 ## Pasos para la instalación
 1. Copiar el repositorio con `git clone https://github.com/Vintuwu/FITp2.git`
 2. Instalar las dependencias del proyecto con `npm install`
-3. Copiar y renombrar el archivo `.env.local.example` por `.env.local` y configurar la base de datos (MySQL)
+3. Copiar y renombrar el archivo `.env.example` por `.env` y configurar la base de datos (MySQL)
 4. Ejecutar el comando `npm run strapi import -- -f strapiExport.tar.gz`
 5. Correr el proyecto con `npm run develop`
 6. Registrarse en Strapi
